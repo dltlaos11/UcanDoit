@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Dashboard, SelfDiagonse } from "./pages";
+import { SelfTest } from "./components";
+import "antd/dist/antd.min.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <div className="flex relative dark:bg-main-dark-bg">
+          <div className="dark:bg-main-bg bg-main-bg min-h-screen w-full">
+            <div>
+              <Routes>
+                {/* Dashboard */}
+                <Route path="/" element={<Dashboard />} />
+                {/* Pages */}
+                <Route path="/SelfDiagonse" element={<SelfDiagonse />} />
+
+                <Route path="/SelfTest" element={<SelfTest />} />
+              </Routes>
+            </div>
+          </div>
+        </div>
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
